@@ -1,0 +1,1007 @@
+[gd_scene format=3 uid="uid://dnh3tx7sdiy3k"]
+
+[ext_resource type="Texture2D" uid="uid://wo01jd0wxqef" path="res://brick/Art Assets/fondojuego.webp" id="1_80o4h"]
+[ext_resource type="Script" uid="uid://bvm2oq8rumosv" path="res://paleta3.gd" id="2_o3q2s"]
+[ext_resource type="Texture2D" uid="uid://c7n81hkr4u21l" path="res://brick/Art Assets/Paddles with HealthBar.png" id="3_d0xek"]
+[ext_resource type="Texture2D" uid="uid://cpg1vlokbakso" path="res://brick/Art Assets/corazon.png" id="4_b14df"]
+[ext_resource type="Script" uid="uid://dp4ymmkgwdcu8" path="res://pelota3.gd" id="4_kqv6p"]
+[ext_resource type="Texture2D" uid="uid://jv284i1pbym5" path="res://brick/Art Assets/Balls.png" id="5_b14df"]
+[ext_resource type="Script" uid="uid://c5s3gc1t238rg" path="res://ladrillo.gd" id="6_kqv6p"]
+[ext_resource type="Texture2D" uid="uid://brqs3y6wf48sa" path="res://brick/Art Assets/Bricks Full.png" id="6_o3q2s"]
+[ext_resource type="Texture2D" uid="uid://dhuqjoct1yoib" path="res://brick/Art Assets/Bricks Damaged.png" id="8_b14df"]
+[ext_resource type="Script" uid="uid://c3yqkj3sh273t" path="res://vacio.gd" id="10_80o4h"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_r3jmu"]
+radius = 11.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d0xek"]
+size = Vector2(1763.9258, 739.64014)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j2qoj"]
+size = Vector2(1218, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_80o4h"]
+size = Vector2(1151, 58)
+
+[node name="Proyecto" type="Node2D" unique_id=1746979145]
+
+[node name="Fondo" type="Node2D" parent="." unique_id=1288466812]
+
+[node name="Sprite2D" type="Sprite2D" parent="Fondo" unique_id=1022885027]
+position = Vector2(580.00006, 311.00003)
+scale = Vector2(1.8998696, 2.014019)
+texture = ExtResource("1_80o4h")
+region_rect = Rect2(179.00058, 61.000214, 282.0004, 237.0003)
+
+[node name="Paleta" type="CharacterBody2D" parent="." unique_id=266799325]
+position = Vector2(581, 578)
+collision_mask = 9
+motion_mode = 1
+script = ExtResource("2_o3q2s")
+
+[node name="Paleta" type="Sprite2D" parent="Paleta" unique_id=257794342]
+position = Vector2(1.0000458, 9.536743e-07)
+scale = Vector2(5.735294, 5.7352943)
+texture = ExtResource("3_d0xek")
+region_enabled = true
+region_rect = Rect2(99.60239, 0, 39.81987, 17.02372)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Paleta" unique_id=1168048985]
+visibility_layer = 3
+position = Vector2(2.4795532e-05, 1.0000143)
+polygon = PackedVector2Array(0, -23, -36, -23, -62, -22, -86, -20, -112, -17, -113, 19, 115, 19, 114, -16, 89, -20, 64, -22, 37, -23, 0, -23)
+
+[node name="Vida3" type="Sprite2D" parent="Paleta" unique_id=1091063101]
+position = Vector2(1, 41)
+scale = Vector2(0.07272956, 0.07272958)
+texture = ExtResource("4_b14df")
+
+[node name="Vida2" type="Sprite2D" parent="Paleta" unique_id=674890245]
+position = Vector2(-55, 41)
+scale = Vector2(0.07142857, 0.071428575)
+texture = ExtResource("4_b14df")
+
+[node name="Vida1" type="Sprite2D" parent="Paleta" unique_id=1307671482]
+position = Vector2(56, 41)
+scale = Vector2(0.07142857, 0.071428575)
+texture = ExtResource("4_b14df")
+
+[node name="Pelota" type="CharacterBody2D" parent="." unique_id=737978678]
+position = Vector2(580, 543)
+collision_layer = 2
+motion_mode = 1
+script = ExtResource("4_kqv6p")
+
+[node name="Sprite2D" type="Sprite2D" parent="Pelota" unique_id=392474217]
+scale = Vector2(1.7307693, 1.7307693)
+texture = ExtResource("5_b14df")
+region_enabled = true
+region_rect = Rect2(17.275455, 33.010807, 13.56288, 13.910496)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pelota" unique_id=908466066]
+light_mask = 2
+shape = SubResource("CircleShape2D_r3jmu")
+
+[node name="Limite" type="StaticBody2D" parent="." unique_id=1293405269]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Limite" unique_id=1392859384]
+position = Vector2(1, 0)
+polygon = PackedVector2Array(-2, -2, 1149, 1, 1151, 674, 1188, 674, 1188, -52, -30, -52, -30, 674, -1, 674)
+
+[node name="ladrillo" type="StaticBody2D" parent="." unique_id=992973529]
+position = Vector2(67, 30)
+script = ExtResource("6_kqv6p")
+
+[node name="Completo" type="Sprite2D" parent="ladrillo" unique_id=1826761132]
+position = Vector2(-3.0517578e-05, 0)
+scale = Vector2(3.8024201, 4.1000004)
+texture = ExtResource("6_o3q2s")
+region_enabled = true
+region_rect = Rect2(0.00554657, 17.920952, 32.194714, 10.971386)
+
+[node name="Roto" type="Sprite2D" parent="ladrillo" unique_id=855497597]
+position = Vector2(-6.1035156e-05, 3.8146973e-06)
+scale = Vector2(3.8024201, 4.1000004)
+texture = ExtResource("8_b14df")
+region_enabled = true
+region_rect = Rect2(0.10849762, 18.453724, 32.014854, 10.2519455)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ladrillo" unique_id=1560808668]
+light_mask = 7
+visibility_layer = 7
+scale = Vector2(0.069163926, 0.05948839)
+shape = SubResource("RectangleShape2D_d0xek")
+debug_color = Color(0.91087794, 0.00010280729, 0.7302757, 0.41960785)
+
+[node name="ladrillo8" type="StaticBody2D" parent="." unique_id=556801978]
+position = Vector2(955, 30)
+script = ExtResource("6_kqv6p")
+
+[node name="Completo" type="Sprite2D" parent="ladrillo8" unique_id=683333053]
+position = Vector2(-3.0517578e-05, 0)
+scale = Vector2(3.8024201, 4.1000004)
+texture = ExtResource("6_o3q2s")
+region_enabled = true
+region_rect = Rect2(31.959938, 2.0305138, 32.17534, 10.928259)
+
+[node name="Roto" type="Sprite2D" parent="ladrillo8" unique_id=1927807028]
+position = Vector2(-6.1035156e-05, 3.8146973e-06)
+scale = Vector2(3.8024201, 4.1000004)
+texture = ExtResource("8_b14df")
+region_enabled = true
+region_rect = Rect2(31.989223, 1.9189482, 32.048977, 11.056148)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ladrillo8" unique_id=2048228822]
+light_mask = 7
+visibility_layer = 7
+scale = Vector2(0.069163926, 0.05948839)
+shape = SubResource("RectangleShape2D_d0xek")
+debug_color = Color(0.91087794, 0.00010280729, 0.7302757, 0.41960785)
+
+[node name="ladrillo7" type="StaticBody2D" parent="." unique_id=1683076229]
+position = Vector2(828, 30)
+script = ExtResource("6_kqv6p")
+
+[node name="Completo" type="Sprite2D" parent="ladrillo7" unique_id=1665390430]
+position = Vector2(-3.0517578e-05, 0)
+scale = Vector2(3.8024201, 4.1000004)
+texture = ExtResource("6_o3q2s")
+region_enabled = true
+region_rect = Rect2(32.184364, 33.71662, 31.93998, 11.517929)
+
+[node name="Roto" type="Sprite2D" parent="ladrillo7" unique_id=378292469]
+position = Vector2(-6.1035156e-05, 3.8146973e-06)
+scale = Vector2(3.8024201, 4.1000004)
+texture = ExtResource("8_b14df")
+region_enabled = true
+region_rect = Rect2(32.207428, 33.810295, 31.50077, 11.393875)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ladrillo7" unique_id=493837910]
+light_mask = 7
+visibility_layer = 7
+scale = Vector2(0.069163926, 0.05948839)
+shape = SubResource("RectangleShape2D_d0xek")
+debug_color = Color(0.91087794, 0.00010280729, 0.7302757, 0.41960785)
+
+[node name="ladrillo6" type="StaticBody2D" parent="." unique_id=1306743935]
+position = Vector2(701, 30)
+script = ExtResource("6_kqv6p")
+
+[node name="Completo" type="Sprite2D" parent="ladrillo6" unique_id=752179138]
+position = Vector2(-3.0517578e-05, 0)
+scale = Vector2(3.8024201, 4.1000004)
+texture = ExtResource("6_o3q2s")
+region_enabled = true
+region_rect = Rect2(-0.09607506, 49.61178, 32.367203, 11.811329)
+
+[node name="Roto" type="Sprite2D" parent="ladrillo6" unique_id=1234955351]
+position = Vector2(-6.1035156e-05, 3.8146973e-06)
+scale = Vector2(3.8024201, 4.1000004)
+texture = ExtResource("8_b14df")
+region_enabled = true
+region_rect = Rect2(0.07157135, 49.863808, 32.082115, 11.269348)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ladrillo6" unique_id=1555654957]
+light_mask = 7
+visibility_layer = 7
+scale = Vector2(0.069163926, 0.05948839)
+shape = SubResource("RectangleShape2D_d0xek")
+debug_color = Color(0.91087794, 0.00010280729, 0.7302757, 0.41960785)
+
+[node name="ladrillo5" type="StaticBody2D" parent="." unique_id=824849180]
+position = Vector2(574, 30)
+script = ExtResource("6_kqv6p")
+
+[node name="Completo" type="Sprite2D" parent="ladrillo5" unique_id=2113636220]
+position = Vector2(-3.0517578e-05, 0)
+scale = Vector2(3.8024201, 4.1000004)
+texture = ExtResource("6_o3q2s")
+region_enabled = true
+region_rect = Rect2(-0.032787323, 33.620155, 32.49431, 11.594212)
+
+[node name="Roto" type="Sprite2D" parent="ladrillo5" unique_id=558431187]
+position = Vector2(-6.1035156e-05, 3.8146973e-06)
+scale = Vector2(3.8024201, 4.1000004)
+texture = ExtResource("8_b14df")
+region_enabled = true
+region_rect = Rect2(-0.1370964, 34.009678, 32.21109, 11.398502)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ladrillo5" unique_id=1938027412]
+light_mask = 7
+visibility_layer = 7
+scale = Vector2(0.069163926, 0.05948839)
+shape = SubResource("RectangleShape2D_d0xek")
+debug_color = Color(0.91087794, 0.00010280729, 0.7302757, 0.41960785)
+
+[node name="ladrillo2" type="StaticBody2D" parent="." unique_id=724530170]
+position = Vector2(194, 30)
+script = ExtResource("6_kqv6p")
+
+[node name="Completo" type="Sprite2D" parent="ladrillo2" unique_id=868619783]
+position = Vector2(-3.0517578e-05, 0)
+scale = Vector2(3.8024201, 4.1000004)
+texture = ExtResource("6_o3q2s")
+region_enabled = true
+region_rect = Rect2(-0.17431259, 2.0933847, 32.55443, 10.791523)
+
+[node name="Roto" type="Sprite2D" parent="ladrillo2" unique_id=538588532]
+position = Vector2(-6.1035156e-05, 3.8146973e-06)
+scale = Vector2(3.8024201, 4.1000004)
+texture = ExtResource("8_b14df")
+region_enabled = true
+region_rect = Rect2(-0.17431259, 1.9135256, 32.374573, 11.151241)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ladrillo2" unique_id=302043539]
+light_mask = 7
+visibility_layer = 7
+scale = Vector2(0.069163926, 0.05948839)
+shape = SubResource("RectangleShape2D_d0xek")
+debug_color = Color(0.91087794, 0.00010280729, 0.7302757, 0.41960785)
+
+[node name="ladrillo3" type="StaticBody2D" parent="." unique_id=447233392]
+position = Vector2(321, 30)
+script = ExtResource("6_kqv6p")
+
+[node name="Completo" type="Sprite2D" parent="ladrillo3" unique_id=1562535667]
+position = Vector2(-3.0517578e-05, 0)
+scale = Vector2(3.8024201, 4.1000004)
+texture = ExtResource("6_o3q2s")
+region_enabled = true
+region_rect = Rect2(32.16397, 18.10739, 31.877686, 10.767277)
+
+[node name="Roto" type="Sprite2D" parent="ladrillo3" unique_id=952967499]
+position = Vector2(-6.1035156e-05, 3.8146973e-06)
+scale = Vector2(3.8024201, 4.1000004)
+texture = ExtResource("8_b14df")
+region_enabled = true
+region_rect = Rect2(32.16397, 18.10739, 31.877686, 10.767277)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ladrillo3" unique_id=511411114]
+light_mask = 7
+visibility_layer = 7
+scale = Vector2(0.069163926, 0.05948839)
+shape = SubResource("RectangleShape2D_d0xek")
+debug_color = Color(0.91087794, 0.00010280729, 0.7302757, 0.41960785)
+
+[node name="ladrillo4" type="StaticBody2D" parent="." unique_id=1829450320]
+position = Vector2(448, 30)
+script = ExtResource("6_kqv6p")
+
+[node name="Completo" type="Sprite2D" parent="ladrillo4" unique_id=1240873767]
+position = Vector2(-3.0517578e-05, 0)
+scale = Vector2(3.8024201, 4.1000004)
+texture = ExtResource("6_o3q2s")
+region_enabled = true
+region_rect = Rect2(32.367428, 1.9135256, 31.84769, 11.402102)
+
+[node name="Roto" type="Sprite2D" parent="ladrillo4" unique_id=2014428724]
+position = Vector2(-6.1035156e-05, 3.8146973e-06)
+scale = Vector2(3.8024201, 4.1000004)
+texture = ExtResource("8_b14df")
+region_enabled = true
+region_rect = Rect2(31.788836, 2.273243, 31.886698, 10.791524)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ladrillo4" unique_id=800354617]
+light_mask = 7
+visibility_layer = 7
+scale = Vector2(0.069163926, 0.05948839)
+shape = SubResource("RectangleShape2D_d0xek")
+debug_color = Color(0.91087794, 0.00010280729, 0.7302757, 0.41960785)
+
+[node name="ladrillo9" type="StaticBody2D" parent="." unique_id=1911578677]
+position = Vector2(1083, 30)
+script = ExtResource("6_kqv6p")
+
+[node name="Completo" type="Sprite2D" parent="ladrillo9" unique_id=88422668]
+position = Vector2(-3.0517578e-05, 0)
+scale = Vector2(3.8024201, 4.1000004)
+texture = ExtResource("6_o3q2s")
+region_enabled = true
+region_rect = Rect2(-0.12093353, 33.670742, 32.48822, 11.370876)
+
+[node name="Roto" type="Sprite2D" parent="ladrillo9" unique_id=1624095306]
+position = Vector2(-6.1035156e-05, 3.8146973e-06)
+scale = Vector2(3.8024201, 4.1000004)
+texture = ExtResource("8_b14df")
+region_enabled = true
+region_rect = Rect2(-0.16371632, 33.68286, 32.13325, 11.573929)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ladrillo9" unique_id=312396195]
+light_mask = 7
+visibility_layer = 7
+scale = Vector2(0.069163926, 0.05948839)
+shape = SubResource("RectangleShape2D_d0xek")
+debug_color = Color(0.91087794, 0.00010280729, 0.7302757, 0.41960785)
+
+[node name="Vacio" type="Area2D" parent="." unique_id=651269776]
+position = Vector2(585, 670)
+collision_mask = 3
+script = ExtResource("10_80o4h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Vacio" unique_id=352066973]
+position = Vector2(-5, 0)
+shape = SubResource("RectangleShape2D_j2qoj")
+
+[node name="ladrillo10" type="StaticBody2D" parent="." unique_id=1410556379]
+position = Vector2(829, 80)
+script = ExtResource("6_kqv6p")
+
+[node name="Completo" type="Sprite2D" parent="ladrillo10" unique_id=2046730031]
+position = Vector2(-3.0517578e-05, 0)
+scale = Vector2(3.8024201, 4.1000004)
+texture = ExtResource("6_o3q2s")
+region_enabled = true
+region_rect = Rect2(31.959938, 2.0305138, 32.17534, 10.928259)
+
+[node name="Roto" type="Sprite2D" parent="ladrillo10" unique_id=1825273252]
+position = Vector2(-6.1035156e-05, 3.8146973e-06)
+scale = Vector2(3.8024201, 4.1000004)
+texture = ExtResource("8_b14df")
+region_enabled = true
+region_rect = Rect2(31.989223, 1.9189482, 32.048977, 11.056148)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ladrillo10" unique_id=1315903797]
+light_mask = 7
+visibility_layer = 7
+scale = Vector2(0.069163926, 0.05948839)
+shape = SubResource("RectangleShape2D_d0xek")
+debug_color = Color(0.91087794, 0.00010280729, 0.7302757, 0.41960785)
+
+[node name="ladrillo11" type="StaticBody2D" parent="." unique_id=400101994]
+position = Vector2(702, 80)
+script = ExtResource("6_kqv6p")
+
+[node name="Completo" type="Sprite2D" parent="ladrillo11" unique_id=895584349]
+position = Vector2(-3.0517578e-05, 0)
+scale = Vector2(3.8024201, 4.1000004)
+texture = ExtResource("6_o3q2s")
+region_enabled = true
+region_rect = Rect2(32.184364, 33.71662, 31.93998, 11.517929)
+
+[node name="Roto" type="Sprite2D" parent="ladrillo11" unique_id=1486118056]
+position = Vector2(-6.1035156e-05, 3.8146973e-06)
+scale = Vector2(3.8024201, 4.1000004)
+texture = ExtResource("8_b14df")
+region_enabled = true
+region_rect = Rect2(32.207428, 33.810295, 31.50077, 11.393875)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ladrillo11" unique_id=1192943994]
+light_mask = 7
+visibility_layer = 7
+scale = Vector2(0.069163926, 0.05948839)
+shape = SubResource("RectangleShape2D_d0xek")
+debug_color = Color(0.91087794, 0.00010280729, 0.7302757, 0.41960785)
+
+[node name="ladrillo12" type="StaticBody2D" parent="." unique_id=267741586]
+position = Vector2(575, 80)
+script = ExtResource("6_kqv6p")
+
+[node name="Completo" type="Sprite2D" parent="ladrillo12" unique_id=377806043]
+position = Vector2(-3.0517578e-05, 0)
+scale = Vector2(3.8024201, 4.1000004)
+texture = ExtResource("6_o3q2s")
+region_enabled = true
+region_rect = Rect2(-0.09607506, 49.61178, 32.367203, 11.811329)
+
+[node name="Roto" type="Sprite2D" parent="ladrillo12" unique_id=162308227]
+position = Vector2(-6.1035156e-05, 3.8146973e-06)
+scale = Vector2(3.8024201, 4.1000004)
+texture = ExtResource("8_b14df")
+region_enabled = true
+region_rect = Rect2(0.07157135, 49.863808, 32.082115, 11.269348)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ladrillo12" unique_id=446622864]
+light_mask = 7
+visibility_layer = 7
+scale = Vector2(0.069163926, 0.05948839)
+shape = SubResource("RectangleShape2D_d0xek")
+debug_color = Color(0.91087794, 0.00010280729, 0.7302757, 0.41960785)
+
+[node name="ladrillo13" type="StaticBody2D" parent="." unique_id=1299868970]
+position = Vector2(448, 80)
+script = ExtResource("6_kqv6p")
+
+[node name="Completo" type="Sprite2D" parent="ladrillo13" unique_id=1473144531]
+position = Vector2(-3.0517578e-05, 0)
+scale = Vector2(3.8024201, 4.1000004)
+texture = ExtResource("6_o3q2s")
+region_enabled = true
+region_rect = Rect2(-0.032787323, 33.620155, 32.49431, 11.594212)
+
+[node name="Roto" type="Sprite2D" parent="ladrillo13" unique_id=2078262089]
+position = Vector2(-6.1035156e-05, 3.8146973e-06)
+scale = Vector2(3.8024201, 4.1000004)
+texture = ExtResource("8_b14df")
+region_enabled = true
+region_rect = Rect2(-0.1370964, 34.009678, 32.21109, 11.398502)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ladrillo13" unique_id=1627084750]
+light_mask = 7
+visibility_layer = 7
+scale = Vector2(0.069163926, 0.05948839)
+shape = SubResource("RectangleShape2D_d0xek")
+debug_color = Color(0.91087794, 0.00010280729, 0.7302757, 0.41960785)
+
+[node name="ladrillo14" type="StaticBody2D" parent="." unique_id=945002403]
+position = Vector2(68, 80)
+script = ExtResource("6_kqv6p")
+
+[node name="Completo" type="Sprite2D" parent="ladrillo14" unique_id=1716143156]
+position = Vector2(-3.0517578e-05, 0)
+scale = Vector2(3.8024201, 4.1000004)
+texture = ExtResource("6_o3q2s")
+region_enabled = true
+region_rect = Rect2(-0.17431259, 2.0933847, 32.55443, 10.791523)
+
+[node name="Roto" type="Sprite2D" parent="ladrillo14" unique_id=1781681584]
+position = Vector2(-6.1035156e-05, 3.8146973e-06)
+scale = Vector2(3.8024201, 4.1000004)
+texture = ExtResource("8_b14df")
+region_enabled = true
+region_rect = Rect2(-0.17431259, 1.9135256, 32.374573, 11.151241)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ladrillo14" unique_id=213325676]
+light_mask = 7
+visibility_layer = 7
+scale = Vector2(0.069163926, 0.05948839)
+shape = SubResource("RectangleShape2D_d0xek")
+debug_color = Color(0.91087794, 0.00010280729, 0.7302757, 0.41960785)
+
+[node name="ladrillo15" type="StaticBody2D" parent="." unique_id=1218961789]
+position = Vector2(195, 80)
+script = ExtResource("6_kqv6p")
+
+[node name="Completo" type="Sprite2D" parent="ladrillo15" unique_id=1615238045]
+position = Vector2(-3.0517578e-05, 0)
+scale = Vector2(3.8024201, 4.1000004)
+texture = ExtResource("6_o3q2s")
+region_enabled = true
+region_rect = Rect2(32.16397, 18.10739, 31.877686, 10.767277)
+
+[node name="Roto" type="Sprite2D" parent="ladrillo15" unique_id=405511491]
+position = Vector2(-6.1035156e-05, 3.8146973e-06)
+scale = Vector2(3.8024201, 4.1000004)
+texture = ExtResource("8_b14df")
+region_enabled = true
+region_rect = Rect2(32.16397, 18.10739, 31.877686, 10.767277)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ladrillo15" unique_id=1724399697]
+light_mask = 7
+visibility_layer = 7
+scale = Vector2(0.069163926, 0.05948839)
+shape = SubResource("RectangleShape2D_d0xek")
+debug_color = Color(0.91087794, 0.00010280729, 0.7302757, 0.41960785)
+
+[node name="ladrillo16" type="StaticBody2D" parent="." unique_id=415531771]
+position = Vector2(322, 80)
+script = ExtResource("6_kqv6p")
+
+[node name="Completo" type="Sprite2D" parent="ladrillo16" unique_id=764634612]
+position = Vector2(-3.0517578e-05, 0)
+scale = Vector2(3.8024201, 4.1000004)
+texture = ExtResource("6_o3q2s")
+region_enabled = true
+region_rect = Rect2(32.367428, 1.9135256, 31.84769, 11.402102)
+
+[node name="Roto" type="Sprite2D" parent="ladrillo16" unique_id=2060243310]
+position = Vector2(-6.1035156e-05, 3.8146973e-06)
+scale = Vector2(3.8024201, 4.1000004)
+texture = ExtResource("8_b14df")
+region_enabled = true
+region_rect = Rect2(31.788836, 2.273243, 31.886698, 10.791524)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ladrillo16" unique_id=1673477722]
+light_mask = 7
+visibility_layer = 7
+scale = Vector2(0.069163926, 0.05948839)
+shape = SubResource("RectangleShape2D_d0xek")
+debug_color = Color(0.91087794, 0.00010280729, 0.7302757, 0.41960785)
+
+[node name="ladrillo17" type="StaticBody2D" parent="." unique_id=469593305]
+position = Vector2(957, 80)
+script = ExtResource("6_kqv6p")
+
+[node name="Completo" type="Sprite2D" parent="ladrillo17" unique_id=1786345325]
+position = Vector2(-3.0517578e-05, 0)
+scale = Vector2(3.8024201, 4.1000004)
+texture = ExtResource("6_o3q2s")
+region_enabled = true
+region_rect = Rect2(-0.12093353, 33.670742, 32.48822, 11.370876)
+
+[node name="Roto" type="Sprite2D" parent="ladrillo17" unique_id=629661256]
+position = Vector2(-6.1035156e-05, 3.8146973e-06)
+scale = Vector2(3.8024201, 4.1000004)
+texture = ExtResource("8_b14df")
+region_enabled = true
+region_rect = Rect2(-0.16371632, 33.68286, 32.13325, 11.573929)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ladrillo17" unique_id=271500506]
+light_mask = 7
+visibility_layer = 7
+scale = Vector2(0.069163926, 0.05948839)
+shape = SubResource("RectangleShape2D_d0xek")
+debug_color = Color(0.91087794, 0.00010280729, 0.7302757, 0.41960785)
+
+[node name="ladrillo18" type="StaticBody2D" parent="." unique_id=582072039]
+position = Vector2(1083, 80)
+script = ExtResource("6_kqv6p")
+
+[node name="Completo" type="Sprite2D" parent="ladrillo18" unique_id=1451166041]
+position = Vector2(-3.0517578e-05, 0)
+scale = Vector2(3.8024201, 4.1000004)
+texture = ExtResource("6_o3q2s")
+region_enabled = true
+region_rect = Rect2(0.00554657, 17.920952, 32.194714, 10.971386)
+
+[node name="Roto" type="Sprite2D" parent="ladrillo18" unique_id=1148825798]
+position = Vector2(-6.1035156e-05, 3.8146973e-06)
+scale = Vector2(3.8024201, 4.1000004)
+texture = ExtResource("8_b14df")
+region_enabled = true
+region_rect = Rect2(0.10849762, 18.453724, 32.014854, 10.2519455)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ladrillo18" unique_id=1619263712]
+light_mask = 7
+visibility_layer = 7
+scale = Vector2(0.069163926, 0.05948839)
+shape = SubResource("RectangleShape2D_d0xek")
+debug_color = Color(0.91087794, 0.00010280729, 0.7302757, 0.41960785)
+
+[node name="ladrillo19" type="StaticBody2D" parent="." unique_id=2026125015]
+position = Vector2(702, 129)
+script = ExtResource("6_kqv6p")
+
+[node name="Completo" type="Sprite2D" parent="ladrillo19" unique_id=1479796691]
+position = Vector2(-3.0517578e-05, 0)
+scale = Vector2(3.8024201, 4.1000004)
+texture = ExtResource("6_o3q2s")
+region_enabled = true
+region_rect = Rect2(31.959938, 2.0305138, 32.17534, 10.928259)
+
+[node name="Roto" type="Sprite2D" parent="ladrillo19" unique_id=976645143]
+position = Vector2(-6.1035156e-05, 3.8146973e-06)
+scale = Vector2(3.8024201, 4.1000004)
+texture = ExtResource("8_b14df")
+region_enabled = true
+region_rect = Rect2(31.989223, 1.9189482, 32.048977, 11.056148)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ladrillo19" unique_id=1323363317]
+light_mask = 7
+visibility_layer = 7
+scale = Vector2(0.069163926, 0.05948839)
+shape = SubResource("RectangleShape2D_d0xek")
+debug_color = Color(0.91087794, 0.00010280729, 0.7302757, 0.41960785)
+
+[node name="ladrillo20" type="StaticBody2D" parent="." unique_id=941127357]
+position = Vector2(575, 129)
+script = ExtResource("6_kqv6p")
+
+[node name="Completo" type="Sprite2D" parent="ladrillo20" unique_id=1660236348]
+position = Vector2(-3.0517578e-05, 0)
+scale = Vector2(3.8024201, 4.1000004)
+texture = ExtResource("6_o3q2s")
+region_enabled = true
+region_rect = Rect2(32.184364, 33.71662, 31.93998, 11.517929)
+
+[node name="Roto" type="Sprite2D" parent="ladrillo20" unique_id=474771468]
+position = Vector2(-6.1035156e-05, 3.8146973e-06)
+scale = Vector2(3.8024201, 4.1000004)
+texture = ExtResource("8_b14df")
+region_enabled = true
+region_rect = Rect2(32.207428, 33.810295, 31.50077, 11.393875)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ladrillo20" unique_id=1470705381]
+light_mask = 7
+visibility_layer = 7
+scale = Vector2(0.069163926, 0.05948839)
+shape = SubResource("RectangleShape2D_d0xek")
+debug_color = Color(0.91087794, 0.00010280729, 0.7302757, 0.41960785)
+
+[node name="ladrillo21" type="StaticBody2D" parent="." unique_id=1104086118]
+position = Vector2(448, 129)
+script = ExtResource("6_kqv6p")
+
+[node name="Completo" type="Sprite2D" parent="ladrillo21" unique_id=1937412685]
+position = Vector2(-3.0517578e-05, 0)
+scale = Vector2(3.8024201, 4.1000004)
+texture = ExtResource("6_o3q2s")
+region_enabled = true
+region_rect = Rect2(-0.09607506, 49.61178, 32.367203, 11.811329)
+
+[node name="Roto" type="Sprite2D" parent="ladrillo21" unique_id=1437539840]
+position = Vector2(-6.1035156e-05, 3.8146973e-06)
+scale = Vector2(3.8024201, 4.1000004)
+texture = ExtResource("8_b14df")
+region_enabled = true
+region_rect = Rect2(0.07157135, 49.863808, 32.082115, 11.269348)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ladrillo21" unique_id=1991113046]
+light_mask = 7
+visibility_layer = 7
+scale = Vector2(0.069163926, 0.05948839)
+shape = SubResource("RectangleShape2D_d0xek")
+debug_color = Color(0.91087794, 0.00010280729, 0.7302757, 0.41960785)
+
+[node name="ladrillo22" type="StaticBody2D" parent="." unique_id=1780804220]
+position = Vector2(321, 129)
+script = ExtResource("6_kqv6p")
+
+[node name="Completo" type="Sprite2D" parent="ladrillo22" unique_id=791355766]
+position = Vector2(-3.0517578e-05, 0)
+scale = Vector2(3.8024201, 4.1000004)
+texture = ExtResource("6_o3q2s")
+region_enabled = true
+region_rect = Rect2(-0.032787323, 33.620155, 32.49431, 11.594212)
+
+[node name="Roto" type="Sprite2D" parent="ladrillo22" unique_id=919308050]
+position = Vector2(-6.1035156e-05, 3.8146973e-06)
+scale = Vector2(3.8024201, 4.1000004)
+texture = ExtResource("8_b14df")
+region_enabled = true
+region_rect = Rect2(-0.1370964, 34.009678, 32.21109, 11.398502)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ladrillo22" unique_id=1558594938]
+light_mask = 7
+visibility_layer = 7
+scale = Vector2(0.069163926, 0.05948839)
+shape = SubResource("RectangleShape2D_d0xek")
+debug_color = Color(0.91087794, 0.00010280729, 0.7302757, 0.41960785)
+
+[node name="ladrillo23" type="StaticBody2D" parent="." unique_id=517062043]
+position = Vector2(1083, 129)
+script = ExtResource("6_kqv6p")
+
+[node name="Completo" type="Sprite2D" parent="ladrillo23" unique_id=479132314]
+position = Vector2(-3.0517578e-05, 0)
+scale = Vector2(3.8024201, 4.1000004)
+texture = ExtResource("6_o3q2s")
+region_enabled = true
+region_rect = Rect2(-0.17431259, 2.0933847, 32.55443, 10.791523)
+
+[node name="Roto" type="Sprite2D" parent="ladrillo23" unique_id=1330083015]
+position = Vector2(-6.1035156e-05, 3.8146973e-06)
+scale = Vector2(3.8024201, 4.1000004)
+texture = ExtResource("8_b14df")
+region_enabled = true
+region_rect = Rect2(-0.17431259, 1.9135256, 32.374573, 11.151241)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ladrillo23" unique_id=1247552420]
+light_mask = 7
+visibility_layer = 7
+scale = Vector2(0.069163926, 0.05948839)
+shape = SubResource("RectangleShape2D_d0xek")
+debug_color = Color(0.91087794, 0.00010280729, 0.7302757, 0.41960785)
+
+[node name="ladrillo24" type="StaticBody2D" parent="." unique_id=217972570]
+position = Vector2(68, 129)
+script = ExtResource("6_kqv6p")
+
+[node name="Completo" type="Sprite2D" parent="ladrillo24" unique_id=1375298625]
+position = Vector2(-3.0517578e-05, 0)
+scale = Vector2(3.8024201, 4.1000004)
+texture = ExtResource("6_o3q2s")
+region_enabled = true
+region_rect = Rect2(32.16397, 18.10739, 31.877686, 10.767277)
+
+[node name="Roto" type="Sprite2D" parent="ladrillo24" unique_id=812294702]
+position = Vector2(-6.1035156e-05, 3.8146973e-06)
+scale = Vector2(3.8024201, 4.1000004)
+texture = ExtResource("8_b14df")
+region_enabled = true
+region_rect = Rect2(32.16397, 18.10739, 31.877686, 10.767277)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ladrillo24" unique_id=556988990]
+light_mask = 7
+visibility_layer = 7
+scale = Vector2(0.069163926, 0.05948839)
+shape = SubResource("RectangleShape2D_d0xek")
+debug_color = Color(0.91087794, 0.00010280729, 0.7302757, 0.41960785)
+
+[node name="ladrillo25" type="StaticBody2D" parent="." unique_id=1362381873]
+position = Vector2(195, 129)
+script = ExtResource("6_kqv6p")
+
+[node name="Completo" type="Sprite2D" parent="ladrillo25" unique_id=971737568]
+position = Vector2(-3.0517578e-05, 0)
+scale = Vector2(3.8024201, 4.1000004)
+texture = ExtResource("6_o3q2s")
+region_enabled = true
+region_rect = Rect2(32.367428, 1.9135256, 31.84769, 11.402102)
+
+[node name="Roto" type="Sprite2D" parent="ladrillo25" unique_id=267145261]
+position = Vector2(-6.1035156e-05, 3.8146973e-06)
+scale = Vector2(3.8024201, 4.1000004)
+texture = ExtResource("8_b14df")
+region_enabled = true
+region_rect = Rect2(31.788836, 2.273243, 31.886698, 10.791524)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ladrillo25" unique_id=1800326974]
+light_mask = 7
+visibility_layer = 7
+scale = Vector2(0.069163926, 0.05948839)
+shape = SubResource("RectangleShape2D_d0xek")
+debug_color = Color(0.91087794, 0.00010280729, 0.7302757, 0.41960785)
+
+[node name="ladrillo26" type="StaticBody2D" parent="." unique_id=1991811440]
+position = Vector2(830, 129)
+script = ExtResource("6_kqv6p")
+
+[node name="Completo" type="Sprite2D" parent="ladrillo26" unique_id=508604575]
+position = Vector2(-3.0517578e-05, 0)
+scale = Vector2(3.8024201, 4.1000004)
+texture = ExtResource("6_o3q2s")
+region_enabled = true
+region_rect = Rect2(-0.12093353, 33.670742, 32.48822, 11.370876)
+
+[node name="Roto" type="Sprite2D" parent="ladrillo26" unique_id=1963037957]
+position = Vector2(-6.1035156e-05, 3.8146973e-06)
+scale = Vector2(3.8024201, 4.1000004)
+texture = ExtResource("8_b14df")
+region_enabled = true
+region_rect = Rect2(-0.16371632, 33.68286, 32.13325, 11.573929)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ladrillo26" unique_id=1300532419]
+light_mask = 7
+visibility_layer = 7
+scale = Vector2(0.069163926, 0.05948839)
+shape = SubResource("RectangleShape2D_d0xek")
+debug_color = Color(0.91087794, 0.00010280729, 0.7302757, 0.41960785)
+
+[node name="ladrillo27" type="StaticBody2D" parent="." unique_id=978718242]
+position = Vector2(956, 129)
+script = ExtResource("6_kqv6p")
+
+[node name="Completo" type="Sprite2D" parent="ladrillo27" unique_id=620405183]
+position = Vector2(-3.0517578e-05, 0)
+scale = Vector2(3.8024201, 4.1000004)
+texture = ExtResource("6_o3q2s")
+region_enabled = true
+region_rect = Rect2(0.00554657, 17.920952, 32.194714, 10.971386)
+
+[node name="Roto" type="Sprite2D" parent="ladrillo27" unique_id=1581394053]
+position = Vector2(-6.1035156e-05, 3.8146973e-06)
+scale = Vector2(3.8024201, 4.1000004)
+texture = ExtResource("8_b14df")
+region_enabled = true
+region_rect = Rect2(0.10849762, 18.453724, 32.014854, 10.2519455)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ladrillo27" unique_id=478530896]
+light_mask = 7
+visibility_layer = 7
+scale = Vector2(0.069163926, 0.05948839)
+shape = SubResource("RectangleShape2D_d0xek")
+debug_color = Color(0.91087794, 0.00010280729, 0.7302757, 0.41960785)
+
+[node name="ladrillo28" type="StaticBody2D" parent="." unique_id=310936701]
+position = Vector2(575, 179)
+script = ExtResource("6_kqv6p")
+
+[node name="Completo" type="Sprite2D" parent="ladrillo28" unique_id=502908104]
+position = Vector2(-3.0517578e-05, 0)
+scale = Vector2(3.8024201, 4.1000004)
+texture = ExtResource("6_o3q2s")
+region_enabled = true
+region_rect = Rect2(31.959938, 2.0305138, 32.17534, 10.928259)
+
+[node name="Roto" type="Sprite2D" parent="ladrillo28" unique_id=1496704894]
+position = Vector2(-6.1035156e-05, 3.8146973e-06)
+scale = Vector2(3.8024201, 4.1000004)
+texture = ExtResource("8_b14df")
+region_enabled = true
+region_rect = Rect2(31.989223, 1.9189482, 32.048977, 11.056148)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ladrillo28" unique_id=1830415490]
+light_mask = 7
+visibility_layer = 7
+scale = Vector2(0.069163926, 0.05948839)
+shape = SubResource("RectangleShape2D_d0xek")
+debug_color = Color(0.91087794, 0.00010280729, 0.7302757, 0.41960785)
+
+[node name="ladrillo29" type="StaticBody2D" parent="." unique_id=1956339796]
+position = Vector2(448, 179)
+script = ExtResource("6_kqv6p")
+
+[node name="Completo" type="Sprite2D" parent="ladrillo29" unique_id=137942831]
+position = Vector2(-3.0517578e-05, 0)
+scale = Vector2(3.8024201, 4.1000004)
+texture = ExtResource("6_o3q2s")
+region_enabled = true
+region_rect = Rect2(32.184364, 33.71662, 31.93998, 11.517929)
+
+[node name="Roto" type="Sprite2D" parent="ladrillo29" unique_id=261695051]
+position = Vector2(-6.1035156e-05, 3.8146973e-06)
+scale = Vector2(3.8024201, 4.1000004)
+texture = ExtResource("8_b14df")
+region_enabled = true
+region_rect = Rect2(32.207428, 33.810295, 31.50077, 11.393875)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ladrillo29" unique_id=943124547]
+light_mask = 7
+visibility_layer = 7
+scale = Vector2(0.069163926, 0.05948839)
+shape = SubResource("RectangleShape2D_d0xek")
+debug_color = Color(0.91087794, 0.00010280729, 0.7302757, 0.41960785)
+
+[node name="ladrillo30" type="StaticBody2D" parent="." unique_id=1529456390]
+position = Vector2(321, 179)
+script = ExtResource("6_kqv6p")
+
+[node name="Completo" type="Sprite2D" parent="ladrillo30" unique_id=125866769]
+position = Vector2(-3.0517578e-05, 0)
+scale = Vector2(3.8024201, 4.1000004)
+texture = ExtResource("6_o3q2s")
+region_enabled = true
+region_rect = Rect2(-0.09607506, 49.61178, 32.367203, 11.811329)
+
+[node name="Roto" type="Sprite2D" parent="ladrillo30" unique_id=1401694431]
+position = Vector2(-6.1035156e-05, 3.8146973e-06)
+scale = Vector2(3.8024201, 4.1000004)
+texture = ExtResource("8_b14df")
+region_enabled = true
+region_rect = Rect2(0.07157135, 49.863808, 32.082115, 11.269348)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ladrillo30" unique_id=1173144118]
+light_mask = 7
+visibility_layer = 7
+scale = Vector2(0.069163926, 0.05948839)
+shape = SubResource("RectangleShape2D_d0xek")
+debug_color = Color(0.91087794, 0.00010280729, 0.7302757, 0.41960785)
+
+[node name="ladrillo31" type="StaticBody2D" parent="." unique_id=584467261]
+position = Vector2(194, 179)
+script = ExtResource("6_kqv6p")
+
+[node name="Completo" type="Sprite2D" parent="ladrillo31" unique_id=92085706]
+position = Vector2(-3.0517578e-05, 0)
+scale = Vector2(3.8024201, 4.1000004)
+texture = ExtResource("6_o3q2s")
+region_enabled = true
+region_rect = Rect2(-0.032787323, 33.620155, 32.49431, 11.594212)
+
+[node name="Roto" type="Sprite2D" parent="ladrillo31" unique_id=1131964004]
+position = Vector2(-6.1035156e-05, 3.8146973e-06)
+scale = Vector2(3.8024201, 4.1000004)
+texture = ExtResource("8_b14df")
+region_enabled = true
+region_rect = Rect2(-0.1370964, 34.009678, 32.21109, 11.398502)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ladrillo31" unique_id=941569540]
+light_mask = 7
+visibility_layer = 7
+scale = Vector2(0.069163926, 0.05948839)
+shape = SubResource("RectangleShape2D_d0xek")
+debug_color = Color(0.91087794, 0.00010280729, 0.7302757, 0.41960785)
+
+[node name="ladrillo32" type="StaticBody2D" parent="." unique_id=502537910]
+position = Vector2(956, 179)
+script = ExtResource("6_kqv6p")
+
+[node name="Completo" type="Sprite2D" parent="ladrillo32" unique_id=1942024150]
+position = Vector2(-3.0517578e-05, 0)
+scale = Vector2(3.8024201, 4.1000004)
+texture = ExtResource("6_o3q2s")
+region_enabled = true
+region_rect = Rect2(-0.17431259, 2.0933847, 32.55443, 10.791523)
+
+[node name="Roto" type="Sprite2D" parent="ladrillo32" unique_id=314579208]
+position = Vector2(-6.1035156e-05, 3.8146973e-06)
+scale = Vector2(3.8024201, 4.1000004)
+texture = ExtResource("8_b14df")
+region_enabled = true
+region_rect = Rect2(-0.17431259, 1.9135256, 32.374573, 11.151241)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ladrillo32" unique_id=645973154]
+light_mask = 7
+visibility_layer = 7
+scale = Vector2(0.069163926, 0.05948839)
+shape = SubResource("RectangleShape2D_d0xek")
+debug_color = Color(0.91087794, 0.00010280729, 0.7302757, 0.41960785)
+
+[node name="ladrillo33" type="StaticBody2D" parent="." unique_id=2010338546]
+position = Vector2(1083, 179)
+script = ExtResource("6_kqv6p")
+
+[node name="Completo" type="Sprite2D" parent="ladrillo33" unique_id=134009369]
+position = Vector2(-3.0517578e-05, 0)
+scale = Vector2(3.8024201, 4.1000004)
+texture = ExtResource("6_o3q2s")
+region_enabled = true
+region_rect = Rect2(32.16397, 18.10739, 31.877686, 10.767277)
+
+[node name="Roto" type="Sprite2D" parent="ladrillo33" unique_id=1244353409]
+position = Vector2(-6.1035156e-05, 3.8146973e-06)
+scale = Vector2(3.8024201, 4.1000004)
+texture = ExtResource("8_b14df")
+region_enabled = true
+region_rect = Rect2(32.16397, 18.10739, 31.877686, 10.767277)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ladrillo33" unique_id=2092643235]
+light_mask = 7
+visibility_layer = 7
+scale = Vector2(0.069163926, 0.05948839)
+shape = SubResource("RectangleShape2D_d0xek")
+debug_color = Color(0.91087794, 0.00010280729, 0.7302757, 0.41960785)
+
+[node name="ladrillo34" type="StaticBody2D" parent="." unique_id=1009873893]
+position = Vector2(68, 179)
+script = ExtResource("6_kqv6p")
+
+[node name="Completo" type="Sprite2D" parent="ladrillo34" unique_id=1535337765]
+position = Vector2(-3.0517578e-05, 0)
+scale = Vector2(3.8024201, 4.1000004)
+texture = ExtResource("6_o3q2s")
+region_enabled = true
+region_rect = Rect2(32.367428, 1.9135256, 31.84769, 11.402102)
+
+[node name="Roto" type="Sprite2D" parent="ladrillo34" unique_id=401672244]
+position = Vector2(-6.1035156e-05, 3.8146973e-06)
+scale = Vector2(3.8024201, 4.1000004)
+texture = ExtResource("8_b14df")
+region_enabled = true
+region_rect = Rect2(31.788836, 2.273243, 31.886698, 10.791524)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ladrillo34" unique_id=804157071]
+light_mask = 7
+visibility_layer = 7
+scale = Vector2(0.069163926, 0.05948839)
+shape = SubResource("RectangleShape2D_d0xek")
+debug_color = Color(0.91087794, 0.00010280729, 0.7302757, 0.41960785)
+
+[node name="ladrillo35" type="StaticBody2D" parent="." unique_id=1176827321]
+position = Vector2(703, 179)
+script = ExtResource("6_kqv6p")
+
+[node name="Completo" type="Sprite2D" parent="ladrillo35" unique_id=507599249]
+position = Vector2(-3.0517578e-05, 0)
+scale = Vector2(3.8024201, 4.1000004)
+texture = ExtResource("6_o3q2s")
+region_enabled = true
+region_rect = Rect2(-0.12093353, 33.670742, 32.48822, 11.370876)
+
+[node name="Roto" type="Sprite2D" parent="ladrillo35" unique_id=1525404424]
+position = Vector2(-6.1035156e-05, 3.8146973e-06)
+scale = Vector2(3.8024201, 4.1000004)
+texture = ExtResource("8_b14df")
+region_enabled = true
+region_rect = Rect2(-0.16371632, 33.68286, 32.13325, 11.573929)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ladrillo35" unique_id=390380376]
+light_mask = 7
+visibility_layer = 7
+scale = Vector2(0.069163926, 0.05948839)
+shape = SubResource("RectangleShape2D_d0xek")
+debug_color = Color(0.91087794, 0.00010280729, 0.7302757, 0.41960785)
+
+[node name="ladrillo36" type="StaticBody2D" parent="." unique_id=51775222]
+position = Vector2(829, 179)
+script = ExtResource("6_kqv6p")
+
+[node name="Completo" type="Sprite2D" parent="ladrillo36" unique_id=1484789401]
+position = Vector2(-3.0517578e-05, 0)
+scale = Vector2(3.8024201, 4.1000004)
+texture = ExtResource("6_o3q2s")
+region_enabled = true
+region_rect = Rect2(0.00554657, 17.920952, 32.194714, 10.971386)
+
+[node name="Roto" type="Sprite2D" parent="ladrillo36" unique_id=1480526988]
+position = Vector2(-6.1035156e-05, 3.8146973e-06)
+scale = Vector2(3.8024201, 4.1000004)
+texture = ExtResource("8_b14df")
+region_enabled = true
+region_rect = Rect2(0.10849762, 18.453724, 32.014854, 10.2519455)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ladrillo36" unique_id=36529216]
+light_mask = 7
+visibility_layer = 7
+scale = Vector2(0.069163926, 0.05948839)
+shape = SubResource("RectangleShape2D_d0xek")
+debug_color = Color(0.91087794, 0.00010280729, 0.7302757, 0.41960785)
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1319841660]
+position = Vector2(582, 641)
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=493498947]
+light_mask = 16
+position = Vector2(-6.5, -10)
+shape = SubResource("RectangleShape2D_80o4h")
